@@ -1,0 +1,46 @@
+﻿@model Lab2_MVC_Gonzales.Models.ClsBisiesto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h1>Años Bisiesto y no Bisiestos</h1>
+        <br /><br />
+              <div>
+                  @using (Html.BeginForm("Visualizar", "Bisiesto", FormMethod.Post))
+                  {
+                      <div>
+                          @*Html.Label("Año Inicial: ")*@
+                          @Html.LabelFor(model => model.inicio, "Año Inicial: ")
+                          @Html.TextBoxFor(model => model.inicio)
+                      </div>
+                      <div>
+                          @Html.LabelFor(model => model.termino, "Año Final: ")
+                          @Html.TextBoxFor(model => model.termino)
+                      </div>
+
+                      <label>
+                          @Html.RadioButton("Anio", "Bisiestos", true) <label>Años Bisiestos</label>
+                      </label>
+                      <label>
+                          @Html.RadioButton("Anio", "No Bisiestos", true) <label>Años No Bisiestos</label>
+                      </label>
+                      <label>
+                          @Html.RadioButton("Anio", "Ambos", true) <label>Ambos</label>
+                      </label>
+                      <br /><br />
+                      <input type="submit" value="Generar" />
+                      <br /><br />
+                  }
+              </div>
+    </div>
+</body>
+</html>
